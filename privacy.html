@@ -137,7 +137,7 @@
         <header>
             <h1>StackMeet Privacy Policy</h1>
             <p class="subtitle">Your privacy is important to us</p>
-            <p class="updated">Last Updated: February 25, 2026</p>
+            <p class="updated">Last Updated: March 1, 2026</p>
         </header>
 
         <section>
@@ -150,20 +150,23 @@
             <h3>Personal Information</h3>
             <ul>
                 <li><strong>Phone Number:</strong> We collect your phone number for account creation, authentication, and enabling communication between buyers and sellers.</li>
+                <li><strong>Email Address:</strong> Optionally collected if you choose to add email login to your account. Used for email-based one-time password (OTP) authentication delivered via Resend.</li>
                 <li><strong>Profile Information:</strong> Optional information such as display name, bio, and profile photo that you choose to provide.</li>
+                <li><strong>Push Notification Token:</strong> A device token provided by Firebase Cloud Messaging (FCM) to deliver push notifications to your device. Stored on our servers and associated with your account.</li>
             </ul>
 
             <h3>Listing Information</h3>
             <ul>
                 <li><strong>Photos:</strong> Images you upload when creating marketplace listings.</li>
                 <li><strong>Listing Details:</strong> Title, description, price, condition, and category information for items you list.</li>
-                <li><strong>Location Data:</strong> Approximate location (city/region) to enable local marketplace matching. We do not track your precise real-time location.</li>
+                <li><strong>Location Data:</strong> Precise GPS location (latitude and longitude) when you grant location permission (ACCESS_FINE_LOCATION). We store your coordinates on our servers to power nearby listing matching and to send you push notifications when listings are posted near you. You may deny or revoke location permission at any time in your device settings, though this will limit nearby features.</li>
             </ul>
 
             <h3>Usage Information</h3>
             <ul>
                 <li><strong>Transaction Data:</strong> Records of your listings, deals, and marketplace activity.</li>
-                <li><strong>Device Information:</strong> Basic device and app usage information for improving our service.</li>
+                <li><strong>Messages:</strong> In-app messages sent between buyers and sellers are stored in Firebase Realtime Database (for real-time delivery) and our PostgreSQL database (for persistence and history).</li>
+                <li><strong>Device &amp; Crash Information:</strong> Basic device and app usage data for improving our service. Firebase Crashlytics automatically collects crash logs, device model, OS version, and diagnostic data to help us identify and fix app issues.</li>
             </ul>
         </section>
 
@@ -182,7 +185,33 @@
         </section>
 
         <section>
-            <h2>3. Third-Party Services</h2>
+            <h2>3. Push Notifications</h2>
+
+            <p>With your permission, StackMeet sends push notifications to your device via Firebase Cloud Messaging. We collect and store your device push token to enable this feature. We may send notifications for:</p>
+            <ul>
+                <li><strong>New Messages:</strong> When another user sends you a message.</li>
+                <li><strong>Nearby Listings:</strong> When a new listing is posted within your configured location radius.</li>
+                <li><strong>Offers and Deal Updates:</strong> When a buyer submits an offer or a deal status changes.</li>
+                <li><strong>Price Alerts:</strong> When a precious metal spot price crosses a threshold you set.</li>
+                <li><strong>Listing Activity:</strong> Reminders about expiring or pending listings.</li>
+            </ul>
+            <p>You can disable push notifications at any time in your device settings or through the Notification Preferences screen within the app. Disabling notifications does not affect your ability to use other features.</p>
+        </section>
+
+        <section>
+            <h2>4. In-App Messaging</h2>
+
+            <p>StackMeet includes a built-in messaging system that allows buyers and sellers to communicate directly. Please be aware of the following:</p>
+            <ul>
+                <li>Messages are stored in <strong>Firebase Realtime Database</strong> (for real-time delivery) and our <strong>PostgreSQL database</strong> (for persistence and history).</li>
+                <li>Message content, sender and recipient IDs, timestamps, and message type (text, offer, etc.) are stored.</li>
+                <li>Messages are visible to both parties in the conversation and are not end-to-end encrypted.</li>
+                <li>We may review messages if required for safety, fraud prevention, or legal compliance.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Third-Party Services</h2>
 
             <p>To provide enhanced functionality, we use the following third-party services:</p>
 
@@ -201,13 +230,26 @@
             <h3>Stripe</h3>
             <p>We use Stripe to process payments for Pro subscriptions and featured listings. Payment card data is handled entirely by Stripe and never stored on our servers.</p>
 
+            <h3>Firebase (Google)</h3>
+            <p>We use several Firebase services provided by Google:</p>
+            <ul>
+                <li><strong>Firebase Authentication:</strong> Issues custom tokens for secure, real-time access to Firebase services.</li>
+                <li><strong>Firebase Realtime Database:</strong> Stores and delivers in-app messages between users in real time. Message content, sender ID, and timestamps are stored here.</li>
+                <li><strong>Firebase Cloud Messaging (FCM):</strong> Delivers push notifications to your device for new messages, nearby listings, price alerts, and offers. Your FCM push token is transmitted to and stored by our servers.</li>
+                <li><strong>Firebase Crashlytics:</strong> Automatically collects crash reports, device information, OS version, and diagnostic data to help us identify and resolve bugs. No personally identifiable information is intentionally included in crash reports.</li>
+            </ul>
+            <p>Firebase services are subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: #D4A843;">Google's Privacy Policy</a>.</p>
+
+            <h3>Resend</h3>
+            <p>If you choose to add email login to your account, we use Resend to deliver one-time password (OTP) emails. Your email address is transmitted to Resend solely to send the verification email and is not used for any other purpose on our behalf. See <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener" style="color: #D4A843;">Resend's Privacy Policy</a>.</p>
+
             <div class="highlight">
                 <strong>Important:</strong> These third-party services process data on our behalf to provide core functionality. We only share the minimum data necessary for each service to operate.
             </div>
         </section>
 
         <section>
-            <h2>4. Data Sharing and Disclosure</h2>
+            <h2>6. Data Sharing and Disclosure</h2>
 
             <p>We do not sell your personal information. We may share your information in the following circumstances:</p>
             <ul>
@@ -219,7 +261,7 @@
         </section>
 
         <section>
-            <h2>5. Data Security</h2>
+            <h2>7. Data Security</h2>
 
             <p>We implement industry-standard security measures to protect your information:</p>
             <ul>
@@ -233,7 +275,7 @@
         </section>
 
         <section>
-            <h2>6. Data Retention</h2>
+            <h2>8. Data Retention</h2>
 
             <p>We retain your information for as long as your account is active or as needed to provide services. You may request deletion of your account and associated data at any time by contacting us or visiting our <a href="https://stackmeet-admin.vercel.app/delete-account">account deletion page</a>.</p>
 
@@ -241,7 +283,7 @@
         </section>
 
         <section>
-            <h2>7. Your Rights and Choices</h2>
+            <h2>9. Your Rights and Choices</h2>
 
             <p>You have the following rights regarding your personal information:</p>
             <ul>
@@ -253,19 +295,19 @@
         </section>
 
         <section>
-            <h2>8. Children's Privacy</h2>
+            <h2>10. Children's Privacy</h2>
 
             <p>StackMeet is not intended for users under the age of 18. We do not knowingly collect information from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
         </section>
 
         <section>
-            <h2>9. Changes to This Policy</h2>
+            <h2>11. Changes to This Policy</h2>
 
             <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting a notice in the app or sending a message to your registered phone number. Your continued use of StackMeet after changes constitutes acceptance of the updated policy.</p>
         </section>
 
         <section>
-            <h2>10. Contact Us</h2>
+            <h2>12. Contact Us</h2>
 
             <div class="contact-box">
                 <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
@@ -273,7 +315,7 @@
                     <strong>Email:</strong> <a href="mailto:eaglepworegon@gmail.com">eaglepworegon@gmail.com</a>
                 </p>
                 <p style="margin-top: 10px;">
-                    <strong>Subject Line:</strong> Privacy Inquiry - 
+                    <strong>Subject Line:</strong> Privacy Inquiry - StackMeet
                 </p>
                 <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
                     We aim to respond to all privacy inquiries within 48 hours.
@@ -283,7 +325,7 @@
 
         <footer>
             <p>&copy; 2026 StackMeet. All rights reserved.</p>
-            <p style="margin-top: 10px;">This privacy policy is effective as of February 25, 2026</p>
+            <p style="margin-top: 10px;">This privacy policy is effective as of March 1, 2026</p>
         </footer>
     </div>
 </body>
